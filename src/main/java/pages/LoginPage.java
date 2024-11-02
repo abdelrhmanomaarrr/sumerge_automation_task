@@ -1,15 +1,12 @@
 package pages;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class LoginPage {
+public class LoginPage extends  PageBase {
 
-    // Locate elements using @FindBy annotations and make them public
-    @FindBy(name = "add")
-    public WebElement addItsId;
+    // LoginPage elements
 
     @FindBy(id = "user-name")
     public WebElement usernameField;
@@ -28,10 +25,11 @@ public class LoginPage {
 
     // Constructor to initialize elements
     public LoginPage(WebDriver driver) {
+        super(driver);
         PageFactory.initElements(driver, this);
     }
 
-    // Example methods to interact with the elements
+    // methods
     public void enterUsername(String username) {
         usernameField.sendKeys(username);
     }
